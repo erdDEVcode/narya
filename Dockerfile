@@ -13,8 +13,7 @@ RUN ~/elrondsdk/erdpy testnet prerequisites
 #RUN ~/elrondsdk/erdpy config set proxy http://0.0.0.0:7950
 RUN mkdir ~/sandbox
 RUN echo "[network]\nport_proxy=7950" > ~/sandbox/testnet.toml
-WORKDIR ~/sandbox
-RUN ~/elrondsdk/erdpy testnet config
+RUN cd ~/sandbox && ~/elrondsdk/erdpy testnet config
 CMD ["/home/erd/elrondsdk/erdpy", "testnet", "start"]
 
 
