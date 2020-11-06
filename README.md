@@ -1,6 +1,6 @@
 # erdnet
 
-Easily deploy an [Elrond local testnet](https://docs.elrond.com/developers/setup-a-local-testnet) with a 1-line command.
+Easily deploy an [Elrond local testnet](https://docs.elrond.com/developers/setup-a-local-testnet).
 
 ## How to use
 
