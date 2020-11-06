@@ -14,6 +14,7 @@ RUN ~/elrondsdk/erdpy testnet prerequisites
 RUN mkdir ~/sandbox
 RUN echo "[network]\nport_proxy=7950" > ~/sandbox/testnet.toml
 RUN cd ~/sandbox && ~/elrondsdk/erdpy testnet config
+WORKDIR /home/erd/sandbox
 CMD ["/home/erd/elrondsdk/erdpy", "testnet", "start"]
 
 
