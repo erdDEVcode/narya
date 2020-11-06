@@ -18,7 +18,7 @@ Once the container is up and running the proxy can be accessed at http://localho
 
 The pre-configured testnet wallets are the same as the ones at https://github.com/ElrondNetwork/elrond-sdk/tree/master/erdpy/testnet/wallets/users 
 
-## Building a new Docker image
+## Development
 
 Build:
 
@@ -32,7 +32,4 @@ Run:
 docker run -p 127.0.0.1:7950:7950/tcp erdnet:latest
 ```
 
-Publish:
-
-```
-```
+The [Docker registry](https://hub.docker.com) is set to auto-build a new image on every push to the `master` branch.
