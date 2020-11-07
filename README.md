@@ -23,13 +23,18 @@ The pre-configured testnet wallets are the same as the ones at https://github.co
 Build:
 
 ```
-docker build --tag erdnet:latest .
+docker build --tag hiddentao/erdnet:latest .
 ```
 
 Run:
 
 ```
-docker run -p 127.0.0.1:7950:7950/tcp erdnet:latest
+docker run -p --rm -it 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest
 ```
 
-The [Docker registry](https://hub.docker.com) is set to auto-build a new image on every push to the `master` branch.
+Publish:
+
+```
+docker login
+docker push hiddentao/erdnet:latest
+```
