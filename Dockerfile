@@ -1,6 +1,6 @@
 FROM ubuntu:groovy
 RUN apt update
-RUN apt install -y wget python3 python3-venv sudo build-essential nano
+RUN apt install -y wget python3 python3-venv sudo build-essential nano net-tools
 RUN adduser --home /home/erd --shell /bin/bash --disabled-password erd
 RUN echo "erd     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER erd
@@ -13,8 +13,8 @@ RUN ~/elrondsdk/erdpy testnet prerequisites
 #RUN ~/elrondsdk/erdpy config set proxy http://0.0.0.0:7950
 RUN mkdir ~/sandbox
 RUN echo "[network]\nport_proxy=7950" > ~/sandbox/testnet.toml
-RUN cd ~/sandbox && ~/elrondsdk/erdpy testnet config
 WORKDIR /home/erd/sandbox
+RUN ~/elrondsdk/erdpy testnet config
 CMD ["/home/erd/elrondsdk/erdpy", "testnet", "start"]
 
 

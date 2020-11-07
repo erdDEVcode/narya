@@ -11,7 +11,7 @@ Pre-requisites:
 Run:
 
 ```
-docker run -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest
+docker run --rm -it -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest
 ```
 
 Once the container is up and running the proxy can be accessed at http://localhost:7950
