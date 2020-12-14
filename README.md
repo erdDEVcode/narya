@@ -1,6 +1,14 @@
+<p align="center">
+  <img width="250" height="250" src="https://raw.githubusercontent.com/erdDEVcode/narya/master/assets/logo.png">
+</p>
+
 # narya
 
-Run a [local Elrond test network](https://docs.elrond.com/developers/setup-a-local-testnet).
+[![NPM module](https://badge.fury.io/js/narya.svg)](https://badge.fury.io/js/narya)
+[![Join the community](https://img.shields.io/badge/Chat%20on-Telegram-brightgreen.svg?color=0088cc)](https://t.me/erdDEV)
+[![Follow on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow&maxAge=2592000)](https://twitter.com/erd_dev)
+
+Run an [Elrond test network](https://docs.elrond.com/developers/setup-a-local-testnet) with a single command.
 
 ## Getting started
 

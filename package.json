@@ -1,6 +1,6 @@
 {
   "name": "narya",
-  "description": "Deploy a local Elrond test network.",
+  "description": "Run an Elrond test network with a single command.",
   "version": "1.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
