@@ -2,6 +2,8 @@ import * as child from 'child_process'
 import assert from 'assert'
 import { execute } from './commands/start'
 
+export { WALLETS } from './wallets'
+
 let instance: child.ChildProcess | undefined
 
 export const getChildProcess = () => instance
@@ -16,3 +18,4 @@ export const stop = async () => {
   instance.kill()
   instance = undefined
 }
+

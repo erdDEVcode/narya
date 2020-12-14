@@ -20,14 +20,14 @@ Pre-requisites:
 Run it:
 
 ```
-npx narya
+$ npx narya
 ```
 
 You can install it as a global Node module and run it:
 
 ```
-npm i -g narya
-narya
+$ npm i -g narya
+$ narya
 ```
 
 Once the Docker container is up and running the [proxy](https://github.com/ElrondNetwork/elrond-proxy-go) can be accessed at http://localhost:7950
@@ -81,6 +81,20 @@ await start() // start a network
 const child = getChildProcess() // get the `ChildProcess` instance representing the docker container
 
 await stop() // stop the started network
+```
+
+You can also get a reference to the test account wallets:
+
+```js
+const { WALLETS } = require('narya)
+const { BasicWallet } = require('elrondjs')
+
+// output Alice's address
+console.log( WALLETS.alice.bech32 ) // "erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th"
+
+// use it for signing transactions
+const wallet = BasicWallet.fromJsonKeyFileString(JSON.stringify(WALLETS.alice), 'password')
+await wallet.signTransaction(...)
 ```
 
 ## Contributors guide
