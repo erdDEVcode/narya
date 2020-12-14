@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "es2015",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "outDir": "./dist/cjs"
+  },
+  "include": [
+    "types.d.ts",
+    "src/**/*"
+  ]
+}

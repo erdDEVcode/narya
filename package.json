@@ -1,0 +1,78 @@
+{
+  "name": "narya",
+  "description": "Deploy a local Elrond test network.",
+  "version": "1.0.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "author": "erdDEV team (https://erd.dev)",
+  "homepage": "https://narya.erd.dev",
+  "license": "MIT",
+  "bin": {
+    "narya": "./bin/narya"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "README.md",
+    "package.json",
+    "package-lock.json",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "build": "tsc && tsc -p tsconfig-esm.json",
+    "dev": "tsc --watch",
+    "build-docs": "rm -rf ./docs-api && typedoc",
+    "prepublishOnly": "npm run build",
+    "release": "semantic-release",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erdDEVcode/narya.git"
+  },
+  "bugs": {
+    "url": "https://github.com/erdDEVcode/narya/issues"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@types/chai": "^4.2.14",
+    "@types/chai-as-promised": "^7.1.3",
+    "@types/command-exists": "^1.2.0",
+    "@types/command-line-args": "^5.0.0",
+    "@types/command-line-usage": "^5.0.1",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/glob": "^7.1.3",
+    "@types/jest": "^26.0.19",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "husky": "^4.3.6",
+    "jest": "^26.6.3",
+    "semantic-release": "^17.2.2",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "command-exists": "^1.2.9",
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.1",
+    "cross-spawn": "^7.0.3",
+    "glob": "^7.1.6",
+    "memory-streams": "^0.1.3"
+  }
+}
