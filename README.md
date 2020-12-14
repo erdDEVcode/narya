@@ -32,7 +32,7 @@ $ narya
 
 Once the Docker container is up and running the [proxy](https://github.com/ElrondNetwork/elrond-proxy-go) can be accessed at http://localhost:7950
 
-The pre-configured testnet wallets are the same as the ones at https://github.com/ElrondNetwork/elrond-sdk/tree/master/erdpy/testnet/wallets/users 
+Full docs are available at https://narya.erd.dev.
 
 ## Usage guide
 
