@@ -9,11 +9,6 @@ export const getMeta = (): CommandMeta => ({
   summary: 'Start a local test network.',
   options: [
     {
-      name: 'verbose',
-      description: 'Enable verbose logging (default: off)',
-      type: Boolean,
-    },
-    {
       name: 'quiet',
       description: 'Enable quiet mode (default: off)',
       type: Boolean,
@@ -21,7 +16,8 @@ export const getMeta = (): CommandMeta => ({
   ],
 })
 
-const DOCKER_ARGS = 'run --rm -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest'
+const DOCKER_API_ARGS = 'run --rm -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest'
+const DOCKER_CLI_ARGS = 'run --rm -it -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest'
 
 export interface Options {
   async?: boolean,
@@ -29,12 +25,12 @@ export interface Options {
   quiet?: boolean,
 }
 
-export const execute = async ({ async, quiet, verbose }: Options): Promise<undefined | child.ChildProcess> => {
+export const execute = async ({ async, quiet }: Options): Promise<undefined | child.ChildProcess> => {
   if (!quiet) {
     logInfo('Starting network ...')
   }
 
-  if (verbose) {
+  if (!quiet) {
     logTrace('Checking for: docker')
   }
 
@@ -44,21 +40,31 @@ export const execute = async ({ async, quiet, verbose }: Options): Promise<undef
     return
   }
 
-  if (verbose) {
+  if (!quiet) {
     logTrace('Starting container')
   }
 
   if (async) {
-    return spawn('docker', DOCKER_ARGS.split(' '), { stdio: 'ignore' })
+    return spawn('docker', DOCKER_API_ARGS.split(' '), { stdio: 'ignore' })
   } else {
     if (!quiet) {
       logInfo('Proxy endpoint: http://localhost:7950')
     }
 
-    const child = spawn.sync('docker', DOCKER_ARGS.split(' '), { stdio: verbose ? 'inherit' : 'ignore' })
+    const child = spawn('docker', DOCKER_CLI_ARGS.split(' '), { stdio: quiet ? 'ignore' : 'inherit' })
 
-    if (child.error || child.signal) {
-      throw new Error(`Child process exited with signal: ${child.signal}, error: ${child.error?.toString()}`)
-    }
+    return new Promise((resolve, reject) => {
+      child.on('exit', (code, signal) => {
+        if (code) {
+          reject(new Error(`Exited badly: ${code}, ${signal}`))
+        } else {
+          resolve()
+        }
+      })
+
+      child.on('error', (err) => {
+        reject(err)
+      })
+    })
   }
 }
