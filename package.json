@@ -1,7 +1,7 @@
 {
   "name": "narya",
   "description": "Run an Elrond test network with a single command.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
