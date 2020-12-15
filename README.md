@@ -136,6 +136,12 @@ To publish a new release:
 npm run release
 ```
 
+To run local tests:
+
+```shell
+npm test
+```
+
 ## License
 
 MIT
