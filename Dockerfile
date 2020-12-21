@@ -9,8 +9,8 @@ RUN python3 ~/erdpy-up.py
 RUN ~/elrondsdk/erdpy config set dependencies.elrond_proxy_go.tag master
 RUN ~/elrondsdk/erdpy config set dependencies.elrond_go.tag master
 RUN ~/elrondsdk/erdpy testnet prerequisites
-#RUN ~/elrondsdk/erdpy config set chainID local-testnet
-#RUN ~/elrondsdk/erdpy config set proxy http://0.0.0.0:7950
+RUN ~/elrondsdk/erdpy config set chainID narya
+RUN ~/elrondsdk/erdpy config set proxy http://0.0.0.0:7950
 RUN mkdir ~/sandbox
 RUN echo "[network]\nport_proxy=7950" > ~/sandbox/testnet.toml
 WORKDIR /home/erd/sandbox
