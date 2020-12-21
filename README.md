@@ -108,34 +108,25 @@ docker build --tag hiddentao/erdnet:latest .
 Run docker image:
 
 ```
-docker run -it -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest
+docker run --rm -it -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest
 ```
 
 If you need to debug, run docker image with bash:
 
 ```
-docker run -it -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest /bin/bash
+docker run --rm -it -p 127.0.0.1:7950:7950/tcp hiddentao/erdnet:latest /bin/bash
 ```
 
 **Publishing**
-
-Due to an [unresolved issues](https://github.com/ElrondNetwork/elrond-sdk/issues), to ensure that the image will 
-constistenly work we first need to rebuild the image from a working container prior to publishing.
-
-Run a container using the commands above and ensure that the network is working. Then in a new tab type:
-
-```
-docker commit <continer_id> hiddentao/erdnet:latest
-```
-
-Now it can be published:
 
 ```
 docker login
 docker push hiddentao/erdnet:latest
 ```
 
-To build the tool and watch for changes:
+**NPM package**
+
+To build the package and watch for changes:
 
 ```
 npm run dev
