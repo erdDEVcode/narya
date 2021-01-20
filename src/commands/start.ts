@@ -27,10 +27,6 @@ export interface Options {
 
 export const execute = async ({ async, quiet }: Options): Promise<undefined | child.ChildProcess> => {
   if (!quiet) {
-    logInfo('Starting network ...')
-  }
-
-  if (!quiet) {
     logTrace('Checking for: docker')
   }
 
@@ -42,15 +38,15 @@ export const execute = async ({ async, quiet }: Options): Promise<undefined | ch
 
   if (!quiet) {
     logTrace('Starting container')
+    logInfo(`Endpoints:
+    
+Proxy:          http://localhost:7950
+`)
   }
 
   if (async) {
     return spawn('docker', DOCKER_API_ARGS.split(' '), { stdio: 'ignore' })
   } else {
-    if (!quiet) {
-      logInfo('Proxy endpoint: http://localhost:7950')
-    }
-
     const child = spawn('docker', DOCKER_CLI_ARGS.split(' '), { stdio: quiet ? 'ignore' : 'inherit' })
 
     return new Promise((resolve, reject) => {
@@ -58,7 +54,7 @@ export const execute = async ({ async, quiet }: Options): Promise<undefined | ch
         if (code) {
           reject(new Error(`Exited badly: ${code}, ${signal}`))
         } else {
-          resolve()
+          resolve(child)
         }
       })
 
