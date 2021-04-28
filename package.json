@@ -6,7 +6,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
   "author": "erdDEV team (https://erd.dev)",
-  "homepage": "https://narya.erd.dev",
+  "homepage": "https://github.com/erdDEVcode/narya",
   "license": "MIT",
   "bin": {
     "narya": "./bin/narya"

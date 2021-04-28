@@ -1,8 +1,4 @@
-<p align="center">
-  <img width="250" height="250" src="https://raw.githubusercontent.com/erdDEVcode/narya/master/assets/logo.png">
-</p>
-
-# narya
+# DEPRECATED - narya is now deprecated and no longer maintained. Please follow the [official docs](https://docs.elrond.com/developers/setup-local-testnet/) to run a local network.
 
 [![NPM module](https://badge.fury.io/js/narya.svg)](https://badge.fury.io/js/narya)
 [![Join the community](https://img.shields.io/badge/Chat%20on-Telegram-brightgreen.svg?color=0088cc)](https://t.me/erdDEV)
@@ -31,8 +27,6 @@ $ narya
 ```
 
 Once the Docker container is up and running the [proxy](https://github.com/ElrondNetwork/elrond-proxy-go) can be accessed at http://localhost:7950
-
-Full docs are available at https://narya.erd.dev.
 
 ## Usage guide
 
